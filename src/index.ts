@@ -1,41 +1,27 @@
 /**
- * This program tells you the length
- * required for a board foot.
+ * This program runs alongside Stack.ts
+ * in order to add items to and view a stack.
  *
  * By:      Aidan Lalonde-Novales
  * Version: 1.0
- * Since:   2022-09-24
+ * Since:   2022-10-10
  */
 
+import Stack from './Stack'
 import promptSync from 'prompt-sync'
 
+// Constants
 const prompt = promptSync()
-
-/**
- * @param {number} width Width of the wood
- * @param {number} height Height of the wood
- * @returns {number} length Length of the wood
- */
-function boardFoot(width: number, height: number): number {
-  const BOARD_FOOT = 144
-  const length = BOARD_FOOT / (width * height)
-  return length
-}
-
-console.log('This program calculates the required length for a board foot.')
+const myStack = new Stack()
 
 // Input
-const widthString = prompt('Enter the width of the wood (in): ')
-const width = parseFloat(widthString)
-const heightString = prompt('Enter the height of the wood (in): ')
-const height = parseFloat(heightString)
+const userNum = Number(prompt('Enter a number to add to a stack: '))
 
-// Process and Output
-if (isNaN(width) || isNaN(height)) {
-  console.log('\nInvalid Input.')
-} else {
-  const length = boardFoot(width, height)
-  console.log(`\nYour wood length should be ${length} inch(es) long.`)
-}
+// Process
+myStack.push(userNum)
+
+// Output
+console.log('')
+myStack.showStack()
 
 console.log('\nDone.')
