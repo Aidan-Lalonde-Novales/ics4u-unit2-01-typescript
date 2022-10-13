@@ -7,6 +7,8 @@
  */
 
 class Stack {
+
+  // creates stack as an array
   stack: number[] = []
 
   // push method - inserts a number to the stack
